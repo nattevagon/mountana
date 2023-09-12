@@ -11,7 +11,7 @@ export default function PopUpMenu({ isOpen, onClose }) {
 
         <div className="modal-content text-left">
           <div className='px-6 py-4 lg:px-8 lg:py-4 flex items-center justify-between w-full z-10'>
-            <Link className='md:mr-8 md:p-6' to='/'>
+            <Link className='md:mr-8 md:p-6' to={process.env.PUBLIC_URL}>
               <img className='w-40 lg:w-60' src={mountana} alt='Logo' />
             </Link>
 
@@ -28,19 +28,19 @@ export default function PopUpMenu({ isOpen, onClose }) {
               className="lg:flex lg:items-center lg:w-auto"
             >
               <li className="mr-6">
-                <a href="#">Home</a>
+                <a href={process.env.PUBLIC_URL}>Home</a>
               </li>
               <li className="mr-6">
-                <a href="/mountain">Mountain</a>
+                <a href={process.env.PUBLIC_URL+"/mountain"}>Mountain</a>
               </li>
               <li className="mr-6">
-                <a href="/wishlish">Wishlist</a>
+                <a href={process.env.PUBLIC_URL+"/wishlish"}>Wishlist</a>
               </li>
               <li className="">
-                <a href="/schedule">Schedule</a>
+                <a href={process.env.PUBLIC_URL+"/schedule"}>Schedule</a>
               </li>
               <li className="">
-                <a href="/notification">Notification</a>
+                <a href={process.env.PUBLIC_URL+"/notification"}>Notification</a>
               </li>
             </ul>
           </div>
