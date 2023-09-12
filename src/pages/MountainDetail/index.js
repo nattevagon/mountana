@@ -25,7 +25,7 @@ export default function MountainDetail() {
             <img src={product.imageUrl} alt={product.name} className="w-full rounded-lg" />
           </div>
           <div className="md:w-1/2 md:ml-8">
-            <h1 className="text-3xl font-semibold mb-4">{product.name}</h1>
+            <h1 className="text-3xl font-semibold mt-4 mb-4 sm:mt-0">{product.name}</h1>
             <p className="text-gray-600">{product.description}</p>
             <div className='mt-4'>
               <h1 className="text-xl font-semibold mb-4">Information</h1>
