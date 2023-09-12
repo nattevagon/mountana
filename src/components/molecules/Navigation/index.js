@@ -31,7 +31,7 @@ export default function Navigation() {
   return (
     <nav className={'px-6 py-4 lg:px-8 lg:py-4 flex items-center justify-between fixed top-0 w-full z-10 transition duration-300'+(scrollTop > 20 ? ' bg-gray-100 shadow-md' : 'bg-transparent')}>
       {/* Logo */}
-      <Link className='md:mr-8 md:p-6' to='/'>
+      <Link className='md:mr-8 md:p-6' to={process.env.PUBLIC_URL}>
         <img className='w-40 lg:w-60' src={mountana} alt='Logo' />
       </Link>
 
