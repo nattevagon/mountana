@@ -9,25 +9,25 @@ export default function Router() {
       <Navigation/>
       <Routes>
         <Route
-          path={process.env.PUBLIC_URL+'/'}
+          path='/'
           element={
             <Home/>
           }
         />
         <Route
-          path={process.env.PUBLIC_URL+'/mountain'}
+          path='/mountain'
           element={
             <Mountain/>
           }
         />
         <Route
-          path={process.env.PUBLIC_URL+'/wishlist'}
+          path='/wishlist'
           element={
             <Wishlist/>
           }
         />
         <Route
-          path={process.env.PUBLIC_URL+'/mountain/:id'}
+          path='/mountain/:id'
           element={
             <MountainDetail/>
           }
