@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mountana/static/css/main.3ae88aa2.css",
-    "main.js": "/mountana/static/js/main.b3220565.js",
+    "main.css": "/mountana/static/css/main.1e9a263a.css",
+    "main.js": "/mountana/static/js/main.0a16b9d8.js",
     "static/js/787.264ac49b.chunk.js": "/mountana/static/js/787.264ac49b.chunk.js",
     "index.html": "/mountana/index.html",
     "static/media/bell.svg": "/mountana/static/media/bell.a98979a39d2097483fb817b8a17a66ab.svg",
@@ -15,12 +15,12 @@
     "static/media/arrow-forward.svg": "/mountana/static/media/arrow-forward.9ddb5592d29b18106d4039f79c602570.svg",
     "static/media/arrow-back.svg": "/mountana/static/media/arrow-back.903560142552e192728ea41863229c4f.svg",
     "static/media/expand-more.svg": "/mountana/static/media/expand-more.cc5d662118c29caefe47734edb2e9721.svg",
-    "main.3ae88aa2.css.map": "/mountana/static/css/main.3ae88aa2.css.map",
-    "main.b3220565.js.map": "/mountana/static/js/main.b3220565.js.map",
+    "main.1e9a263a.css.map": "/mountana/static/css/main.1e9a263a.css.map",
+    "main.0a16b9d8.js.map": "/mountana/static/js/main.0a16b9d8.js.map",
     "787.264ac49b.chunk.js.map": "/mountana/static/js/787.264ac49b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ae88aa2.css",
-    "static/js/main.b3220565.js"
+    "static/css/main.1e9a263a.css",
+    "static/js/main.0a16b9d8.js"
   ]
 }
