@@ -34,7 +34,7 @@ export default function PopUpMenu({ isOpen, onClose }) {
                 <a href="/mountain">Mountain</a>
               </li>
               <li className="mr-6">
-                <a href="/favorite">Favorite</a>
+                <a href="/wishlish">Wishlist</a>
               </li>
               <li className="">
                 <a href="/schedule">Schedule</a>

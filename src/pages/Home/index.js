@@ -1,9 +1,15 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { Banner } from "../../components"
 import { Button } from "@material-tailwind/react";
+import { login } from "../../libs/login";
 
 export default function Home() {
+  useEffect(() => {
+    // Update the document title using the browser API
+    handleLogin();
+  });
+
   const banners = [
     {
       id: 1,
@@ -57,6 +63,12 @@ export default function Home() {
     }
   ];
 
+  let handleLogin = () => {
+    login({username: 'natte', password: 'vagon'}, result => {
+      console.log(result)
+    })
+  }
+
   return (
     <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0">
       <div>
@@ -65,7 +77,7 @@ export default function Home() {
       <div>
         <div className="container mx-auto">
           <div className="mt-8 mb-8 grid grid-flow-col gap-4 overflow-x-auto">
-          <Button variant="gradient" color="white" className="rounded-full min-w-min">
+          <Button variant="gradient" color="white" className="rounded-full min-w-min" onClick={() => handleLogin()}>
             All
           </Button>
           <Button variant="gradient" color="white" className="rounded-full min-w-min">
@@ -83,7 +95,7 @@ export default function Home() {
               return (
                 <div>
                   <div key={product.id} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out" >
-                    <Link className="relative" to={"/mountain/" + product.url}>
+                    <Link className="relative" to={process.env.PUBLIC_URL+'/mountain/'+product.url}> 
                       <div
                         className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                         <a href="#!">

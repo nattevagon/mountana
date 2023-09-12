@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function Order() {
+export default function Schedule() {
   const products = [
     {
       id: 1,
@@ -122,7 +122,7 @@ export default function Order() {
             <h2 className="text-xl font-semibold">{product.name}</h2>
             <p className="text-gray-600">{product.description}</p>
             <p className="text-blue-500 font-semibold mt-2">${product.price.toFixed(2)}</p>
-            <Link to={'/mountain/'+product.id}>
+            <Link to={process.env.PUBLIC_URL+'/mountain/'+product.id}>
               <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full text-lg">
                 Detail
               </button>

@@ -1,6 +1,7 @@
 {
   "name": "mountana",
   "version": "0.1.0",
+  "homepage": "https://nattevagon.github.io/mountana",
   "private": true,
   "dependencies": {
     "@material-tailwind/react": "^2.1.1",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Mountain, MountainDetail } from '../../pages';
+import { Home, Mountain, MountainDetail, Wishlist } from '../../pages';
 import { Footer, Navigation } from '../../components';
 
 export default function Router() {
@@ -9,33 +9,27 @@ export default function Router() {
       <Navigation/>
       <Routes>
         <Route
-          path='/'
+          path={process.env.PUBLIC_URL+'/'}
           element={
             <Home/>
           }
         />
         <Route
-          path='/mountain'
+          path={process.env.PUBLIC_URL+'/mountain'}
           element={
             <Mountain/>
           }
         />
         <Route
-          path='/mountain/:id'
+          path={process.env.PUBLIC_URL+'/wishlist'}
+          element={
+            <Wishlist/>
+          }
+        />
+        <Route
+          path={process.env.PUBLIC_URL+'/mountain/:id'}
           element={
             <MountainDetail/>
-          }
-        />
-         <Route
-          path='/order'
-          element={
-            <Mountain/>
-          }
-        />
-         <Route
-          path='/wishlist'
-          element={
-            <Mountain/>
           }
         />
       </Routes>
