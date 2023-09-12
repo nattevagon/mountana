@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { bell, calendar, heart, menuBar, mountana, search } from '../../../assets'
 import { Link } from 'react-router-dom'
 import PopUpMenu from '../PopUpMenu';
+import PopUpLogin from '../PopUpLogin';
 
 export default function Navigation() {
   const [isPopUpMenu, setPopUpMenu] = useState(false);
@@ -28,7 +29,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className={'px-6 py-4 lg:px-8 lg:py-4 flex items-center justify-between fixed top-0 w-full z-10'+(scrollTop > 32 ? ' bg-gray-100 shadow-md' : '')}>
+    <nav className={'px-6 py-4 lg:px-8 lg:py-4 flex items-center justify-between fixed top-0 w-full z-10 transition duration-300'+(scrollTop > 20 ? ' bg-gray-100 shadow-md' : 'bg-transparent')}>
       {/* Logo */}
       <Link className='md:mr-8 md:p-6' to='/'>
         <img className='w-40 lg:w-60' src={mountana} alt='Logo' />

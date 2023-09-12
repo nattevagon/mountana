@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home, Mountain, MountainDetail } from '../../pages';
-import { Navigation } from '../../components';
+import { Footer, Navigation } from '../../components';
 
 export default function Router() {
   return (
@@ -39,6 +39,7 @@ export default function Router() {
           }
         />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }

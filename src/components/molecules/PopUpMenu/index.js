@@ -31,13 +31,16 @@ export default function PopUpMenu({ isOpen, onClose }) {
                 <a href="#">Home</a>
               </li>
               <li className="mr-6">
-                <a href="#">About</a>
+                <a href="mountain">Mountain</a>
               </li>
               <li className="mr-6">
-                <a href="#">Services</a>
+                <a href="favorite">Favorite</a>
               </li>
               <li className="">
-                <a href="#">Contact</a>
+                <a href="schedule">Schedule</a>
+              </li>
+              <li className="">
+                <a href="notification">Notification</a>
               </li>
             </ul>
           </div>
