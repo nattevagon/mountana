@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
-import { Banner, Footer } from "../../components"
+import { Banner } from "../../components"
 import { Button } from "@material-tailwind/react";
 
 export default function Home() {

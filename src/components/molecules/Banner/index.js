@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Carousel } from "@material-tailwind/react";
 
 export default function Banner(props) {
