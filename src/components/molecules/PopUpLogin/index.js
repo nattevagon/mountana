@@ -1,63 +1,59 @@
 import React from 'react';
-import { TERipple, TEModal, TEModalDialog, TEModalContent, TEModalHeader, TEModalBody, TEModalFooter, } from "tw-elements-react";
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  Input,
+  Checkbox,
+  Typography,
+} from "@material-tailwind/react";
 
 export default function PopUpLogin(props) {
   return (
-    <div>
-      <TEModal show={props.show} setShow={props.onShow} className="z-20">
-      <TEModalDialog>
-          <TEModalContent>
-            <TEModalHeader>
-              <h5 className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200">
-                Modal title
-              </h5>
-              {/* <!--Close button--> */}
-              <button
-                type="button"
-                className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-                onClick={() => props.onShow(false)}
-                aria-label="Close"
+    <Dialog open={props.isOpen} size={"xs"} handler={() => props.onClose()}>
+      <DialogBody>
+        <Typography variant="h4" color="blue-gray">
+          Sign Up
+        </Typography>
+        <Typography color="gray" className="mt-1 font-normal">
+          Enter your details to register.
+        </Typography>
+        <form className="mt-8 mb-2">
+          <div className="mb-4 flex flex-col gap-6">
+            <Input size="lg" label="Name" />
+            <Input size="lg" label="Email" />
+            <Input type="password" size="lg" label="Password" />
+          </div>
+          <Checkbox
+            label={
+              <Typography
+                variant="small"
+                color="gray"
+                className="flex items-center font-normal"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="h-6 w-6"
+                I agree the
+                <a
+                  href="#"
+                  className="font-medium transition-colors hover:text-gray-900"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </TEModalHeader>
-            {/* <!--Modal body--> */}
-            <TEModalBody>Modal body text goes here.</TEModalBody>
-            <TEModalFooter>
-              <TERipple rippleColor="light">
-                <button
-                  type="button"
-                  className="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-                  onClick={() => props.onShow(false)}
-                >
-                  Close
-                </button>
-              </TERipple>
-              <TERipple rippleColor="light">
-                <button
-                  type="button"
-                  className="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                >
-                  Save changes
-                </button>
-              </TERipple>
-            </TEModalFooter>
-          </TEModalContent>
-        </TEModalDialog>
-      </TEModal>
-    </div>
+                  &nbsp;Terms and Conditions
+                </a>
+              </Typography>
+            }
+            containerProps={{ className: "-ml-2.5" }}
+          />
+          <Button className="mt-6" fullWidth>
+            Register
+          </Button>
+          <Typography color="gray" className="mt-4 text-center font-normal">
+            Already have an account?{" "}
+            <a href="#" className="font-medium text-gray-900">
+              Sign In
+            </a>
+          </Typography>
+        </form>
+      </DialogBody>
+    </Dialog>
   )
 }

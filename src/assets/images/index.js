@@ -10,6 +10,13 @@ import arrowBack from './icons/arrow-back.svg'
 import filterList from './icons/filter-list.svg'
 import sort from './icons/sort.svg'
 import expandMore from './icons/expand-more.svg'
+import expandLess from './icons/expand-less.svg'
+import hiking from './icons/hiking.svg'
+import home from './icons/home.svg'
+import mountain from './icons/mountain.svg'
+import accountCircle from './icons/account-circle.svg'
+import settings from './icons/settings.svg'
+import logout from './icons/logout.svg'
 
 //Logos
 import mountana from './logos/mountana.png'
@@ -28,5 +35,12 @@ export {
     arrowBack,
     filterList,
     sort,
-    expandMore
+    expandMore,
+    expandLess,
+    hiking,
+    home,
+    mountain,
+    accountCircle,
+    settings,
+    logout
 }

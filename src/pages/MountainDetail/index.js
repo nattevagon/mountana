@@ -22,7 +22,11 @@ export default function MountainDetail() {
       <div className="bg-white rounded-lg mt-4 p-6">
         <div className='md:flex'>
           <div className="md:w-1/2">
-            <img src={product.imageUrl} alt={product.name} className="w-full rounded-lg" />
+            <img
+              className="h-96 w-full rounded-lg object-cover object-center shadow-xl shadow-blue-gray-300/50"
+              src={product.imageUrl}
+              alt={product.name}
+            />
           </div>
           <div className="md:w-1/2 md:ml-8">
             <h1 className="text-3xl font-semibold mt-4 mb-4 sm:mt-0">{product.name}</h1>

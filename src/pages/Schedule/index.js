@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { Breadcrumb } from '../../components';
 
 export default function Schedule() {
   const products = [
@@ -114,7 +115,10 @@ export default function Schedule() {
   ];
 
   return (
-    <div className="container mx-auto mt-8 px-4 py-20">
+    <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0">
+      <Breadcrumb
+        parent={"schedule"}
+      />
       <h1 className="text-3xl font-semibold mb-4">Schedule</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product) => (
