@@ -50,8 +50,8 @@ export default function Mountain() {
       <Breadcrumb
         parent={"mountain"}
       />
-      <div className="">
-        <div className="container mx-auto">
+      <div>
+        <div className="mx-auto">
           <div className="mt-4 mb-8 grid grid-flow-col gap-4 overflow-x-auto">
             <Button variant="gradient" color="white" className="rounded-full min-w-min">
               All

@@ -6,7 +6,7 @@ export default function Banner(props) {
   }, []);
 
   return (
-    <Carousel className="rounded-xl">
+    <Carousel className="rounded-xl z-0">
       {props.data.map((item, i) => {
         return (
           <img

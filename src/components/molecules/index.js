@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Breadcrumb from "./Breadcrumb";
 import Footer from "./Footer";
 import PopUpLogin from "./PopUpLogin";
+import PopUpRegister from "./PopUpRegister";
 import PopUpMenu from "./PopUpMenu";
 
 export {
@@ -11,5 +12,6 @@ export {
     Breadcrumb,
     Footer,
     PopUpLogin,
+    PopUpRegister,
     PopUpMenu
 }
