@@ -22,6 +22,7 @@ export default function Banner(props) {
         </div>
       )}
       autoplay={true}
+      loop={true}
     >
       {props.data.map((item, i) => {
         return (

@@ -52,7 +52,7 @@ export default function Schedule() {
                   className="h-full w-full object-cover"
                 />
               </CardHeader>
-              <CardBody className='py-0 px-6 w-full'>
+              <CardBody className='py-4 px-6 w-full'>
                 <Typography variant="h4" color="blue-gray" className="mb-1">
                   {item.name}
                 </Typography>
