@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { Banner } from "../../components"
-import { Button } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import { login } from "../../libs/login";
 
 export default function Home() {
@@ -83,8 +83,16 @@ export default function Home() {
 
   return (
     <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0">
-      <div>
+      <div className="relative">
         <Banner data={banners} />
+        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 md:p-6 lg:p-8">
+          <Typography variant="h1" className="text-center text-white text-md md:text-4xl lg:text-6xl">Find your outdoors</Typography>
+          <div className="flex item-center justify-center mt-2 mb-6 md:mt-4">
+            <Button variant="text" color="white" className="rounded-full min-w-min place-self-center">
+              Explore nearby trails
+            </Button>
+          </div>
+        </div>
       </div>
       <div>
         <div className="container mx-auto">

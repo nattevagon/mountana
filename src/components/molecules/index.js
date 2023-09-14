@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import PopUpLogin from "./PopUpLogin";
 import PopUpRegister from "./PopUpRegister";
 import PopUpMenu from "./PopUpMenu";
+import Notification from "./Notification";
 
 export {
     Navigation,
@@ -13,5 +14,6 @@ export {
     Footer,
     PopUpLogin,
     PopUpRegister,
-    PopUpMenu
+    PopUpMenu,
+    Notification
 }

@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@material-tailwind/react";
 
 export default function Breadcrumb(props) {
   return (
-    <Breadcrumbs className='bg-transparent pl-0'>
+    <Breadcrumbs className='bg-transparent pl-0 mb-4'>
       <a href={process.env.PUBLIC_URL+"/"} className="opacity-60">
         HOME
       </a>

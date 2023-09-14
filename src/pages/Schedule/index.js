@@ -1,117 +1,34 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Breadcrumb } from '../../components';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
 
 export default function Schedule() {
-  const products = [
+  const schedules = [
     {
       id: 1,
-      name: 'Product 1',
-      description: 'This is the description of product 1.',
-      price: 19.99,
+      name: "Gunung Everest",
+      description: "Gunung paling mematikan seasia sedunia brow",
+      date: "10 Jan 2024",
+      location: "Nepal",
+      url: "everest",
+      imageUrl: "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80"
     },
     {
       id: 2,
-      name: 'Product 2',
-      description: 'This is the description of product 2.',
-      price: 29.99,
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      description: 'This is the description of product 3.',
-      price: 14.99,
-    },
-    {
-      id: 1,
-      name: 'Product 1',
-      description: 'This is the description of product 1.',
-      price: 19.99,
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      description: 'This is the description of product 2.',
-      price: 29.99,
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      description: 'This is the description of product 3.',
-      price: 14.99,
-    },
-    {
-      id: 1,
-      name: 'Product 1',
-      description: 'This is the description of product 1.',
-      price: 19.99,
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      description: 'This is the description of product 2.',
-      price: 29.99,
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      description: 'This is the description of product 3.',
-      price: 14.99,
-    },
-    {
-      id: 1,
-      name: 'Product 1',
-      description: 'This is the description of product 1.',
-      price: 19.99,
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      description: 'This is the description of product 2.',
-      price: 29.99,
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      description: 'This is the description of product 3.',
-      price: 14.99,
-    },
-    {
-      id: 1,
-      name: 'Product 1',
-      description: 'This is the description of product 1.',
-      price: 19.99,
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      description: 'This is the description of product 2.',
-      price: 29.99,
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      description: 'This is the description of product 3.',
-      price: 14.99,
-    },
-    {
-      id: 1,
-      name: 'Product 1',
-      description: 'This is the description of product 1.',
-      price: 19.99,
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      description: 'This is the description of product 2.',
-      price: 29.99,
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      description: 'This is the description of product 3.',
-      price: 14.99,
-    },
+      name: "Gunung Sindoro",
+      description: "Gunung paling mematikan seasia sedunia brow",
+      date: "22 Jan 2024",
+      location: "Wonosobo, Indonesia",
+      url: "sindoro",
+      imageUrl: "https://img.freepik.com/premium-photo/mountain-landscape-with-sunset-background_726745-519.jpg"
+    }
   ];
 
   return (
@@ -119,20 +36,56 @@ export default function Schedule() {
       <Breadcrumb
         parent={"schedule"}
       />
-      <h1 className="text-3xl font-semibold mb-4">Schedule</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.map((product) => (
-          <div key={product.id} className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition duration-300 ease-in-out" >
-            <h2 className="text-xl font-semibold">{product.name}</h2>
-            <p className="text-gray-600">{product.description}</p>
-            <p className="text-blue-500 font-semibold mt-2">${product.price.toFixed(2)}</p>
-            <Link to={process.env.PUBLIC_URL+'/mountain/'+product.id}>
-              <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full text-lg">
-                Detail
-              </button>
-            </Link>
-          </div>
-        ))}
+      <div>
+        <div className="bg-white rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          {schedules.map((item, i) => {
+            return (
+              <Card className="w-full max-w-[48rem] flex-row">
+              <CardHeader
+                shadow={false}
+                floated={false}
+                className="m-0 w-2/5 shrink-0 rounded-r-none"
+              >
+                <img
+                  src={item.imageUrl}
+                  alt="card-image"
+                  className="h-full w-full object-cover"
+                />
+              </CardHeader>
+              <CardBody className='py-0 px-6 w-full'>
+                <Typography variant="h4" color="blue-gray" className="mb-1">
+                  {item.name}
+                </Typography>
+                <Typography color="gray" className="font-normal">
+                  {item.location}
+                </Typography>
+                <Typography color="gray" className="mb-4 font-normal">
+                  {item.date}
+                </Typography>
+                <a href="#" className="inline-block">
+                  <Button color='black' className="flex items-center gap-2">
+                    See more
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      className="h-4 w-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                      />
+                    </svg>
+                  </Button>
+                </a>
+              </CardBody>
+            </Card>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

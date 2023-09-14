@@ -9,6 +9,10 @@ import {
 } from "@material-tailwind/react";
 
 export default function PopUpRegister(props) {
+  let handleSubmit = () => {
+    console.log('Submit')
+  }
+
   return (
     <Dialog open={props.isOpen} size={"xs"} handler={() => props.onClose()}>
       <DialogBody>
@@ -25,7 +29,7 @@ export default function PopUpRegister(props) {
             <Input size="lg" label="Email" />
             <Input type="password" size="lg" label="Password" />
           </div>
-          <Button className="mt-6" fullWidth>
+          <Button className="mt-6" fullWidth onClick={() => handleSubmit()}>
             Register
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">

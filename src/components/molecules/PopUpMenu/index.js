@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { accountCircle, bell, calendar, close, heart, logout, mountain, mountana, settings } from '../../../assets';
 import { Link, useNavigate } from 'react-router-dom';
 import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody, Typography, Button } from "@material-tailwind/react";
-import PopUpLogin from '../PopUpLogin';
-import PopUpRegister from '../PopUpRegister';
+import { PopUpLogin, PopUpRegister, Notification } from '../../../components'
 
-export default function PopUpMenu({ isOpen, onClose }) {
+export default function PopUpMenu(props) {
   const history = useNavigate();
   const [isLogin, setLogin] = useState(false);
   const [isPopUpLogin, setPopUpLogin] = useState(false);
   const [isPopUpRegister, setPopUpRegister] = useState(false);
+  const [isNotification, setNotification] = useState(false);
   const [open, setOpen] = useState(0);
 
   useEffect(() => {
@@ -22,12 +22,12 @@ export default function PopUpMenu({ isOpen, onClose }) {
   };
 
   let handleClickMenu = (url) => {
-    onClose();
+    props.onClose();
     history(url);
   }
 
   let handleLoginRegister = (status) => {
-    onClose();
+    props.onClose();
 
     if (status === 'login') {
       setPopUpLogin(true)
@@ -42,19 +42,26 @@ export default function PopUpMenu({ isOpen, onClose }) {
     window.location.reload();
   }
 
+  let handleOpenNotification = () => {
+    props.onClose();
+    props.onOpenNotification(true)
+  }
+
   return (
-    <div className={`${isOpen ? 'fixed inset-0 flex items-center justify-center z-50' : 'hidden'}`} >
+    <div className={props.isOpen ? 'fixed inset-0 flex items-center justify-center z-50' : 'hidden'} >
       <div className="modal-container bg-white z-50 overflow-y-auto lg:flex lg:items-center w-full h-full">
         <div className="modal-content text-left">
-          <div className='px-4 py-4 lg:px-8 lg:py-4 flex items-center justify-between w-full z-10'>
-            <img className='w-40 lg:w-60' src={mountana} alt='Logo' onClick={() => handleClickMenu('/mountain')} />
-            <button className='lg:hidden bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-full' onClick={onClose}>
-              <img
-                src={close}
-                alt="Bell"
-                className="w-6 h-6 inline-block"
-              />
-            </button>
+          <div className='px-4 py-4 lg:px-8 lg:py-4'>
+            <div className='container mx-auto flex items-center justify-between w-full z-10'>
+              <img className='w-40 lg:w-60' src={mountana} alt='Logo' onClick={() => handleClickMenu('/mountain')} />
+              <button className='lg:hidden bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-full' onClick={props.onClose}>
+                <img
+                  src={close}
+                  alt="Bell"
+                  className="w-6 h-6 inline-block"
+                />
+              </button>
+            </div>
           </div>
           <div className="py-4 px-8">
             <List>
@@ -151,7 +158,7 @@ export default function PopUpMenu({ isOpen, onClose }) {
                     </ListItemPrefix>
                     Schedule
                   </ListItem>
-                  <ListItem>
+                  <ListItem onClick={() => handleOpenNotification()}>
                     <ListItemPrefix>
                       <img
                         src={bell}

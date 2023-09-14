@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { accountCircle, bell, calendar, heart, logout, menuBar, mountana, search, settings } from '../../../assets'
+import { accountCircle, bell, calendar, heart, logout, menuBar, mountain, mountana, search, settings } from '../../../assets'
+import { PopUpLogin, PopUpRegister, PopUpMenu, Notification } from '../../../components'
 import { Link } from 'react-router-dom'
-import PopUpMenu from '../PopUpMenu';
-import PopUpLogin from '../PopUpLogin';
-import { Menu, MenuHandler, MenuList, MenuItem, Button, List, ListItem, ListItemPrefix } from '@material-tailwind/react';
-import PopUpRegister from '../PopUpRegister';
+import { Menu, MenuHandler, MenuList, MenuItem, Button, List, ListItem, ListItemPrefix, Badge } from '@material-tailwind/react';
 
 export default function Navigation() {
   const [isLogin, setLogin] = useState(false);
   const [isPopUpMenu, setPopUpMenu] = useState(false);
   const [isPopUpLogin, setPopUpLogin] = useState(false);
   const [isPopUpRegister, setPopUpRegister] = useState(false);
+  const [isNotification, setNotification] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
@@ -34,8 +33,8 @@ export default function Navigation() {
   }
 
   return (
-    <nav className={'px-4 py-4 lg:px-8 lg:py-4 fixed top-0 w-full z-10 transition duration-300' + (scrollTop > 20 ? ' bg-gray-100 shadow-md' : 'bg-transparent')}>
-      <div className='container flex items-center justify-between mx-auto'>
+    <nav className={'px-4 py-4 fixed top-0 w-full z-10 transition duration-300' + (scrollTop > 20 ? ' bg-gray-100 shadow-md' : 'bg-transparent')}>
+      <div className='container flex items-center justify-between mx-auto relative'>
         <Link className='md:mr-8 md:p-6 md:pl-0' to={process.env.PUBLIC_URL}>
           <img className='w-40 lg:w-52' src={mountana} alt='Logo' />
         </Link>
@@ -55,6 +54,15 @@ export default function Navigation() {
           </div>
           {isLogin ?
             <div className='flex'>
+              <Link to={process.env.PUBLIC_URL + "/mountain"}>
+                <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
+                  <img
+                    src={mountain}
+                    alt="Mountain"
+                    className="w-6 h-6 inline-block"
+                  />
+                </button>
+              </Link>
               <Link to={process.env.PUBLIC_URL + "/wishlist"}>
                 <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
                   <img
@@ -73,14 +81,16 @@ export default function Navigation() {
                   />
                 </button>
               </Link>
-              <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
-                <img
-                  src={bell}
-                  alt="Bell"
-                  className="w-6 h-6 inline-block"
-                />
-              </button>
-              <Menu placement="bottom-end">
+              <Badge content="3" className='top-2 right-4'>
+                <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12" onClick={() => setNotification(true)}>
+                  <img
+                    src={bell}
+                    alt="Bell"
+                    className="w-6 h-6 inline-block"
+                  />
+                </button>
+              </Badge>
+              <Menu placement="bottom-end" animate={{ mount: { y: 16 }, unmount: { y: 0 } }}>
                 <MenuHandler>
                   <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full h-12 flex">
                     <img
@@ -92,7 +102,7 @@ export default function Navigation() {
                   </button>
                 </MenuHandler>
                 <MenuList>
-                  <List className='outline-none'>
+                  <List className='outline-none p-0'>
                     <ListItem>
                       <ListItemPrefix>
                         <img
@@ -129,6 +139,15 @@ export default function Navigation() {
             </div>
             :
             <div className='flex'>
+              <Link to={process.env.PUBLIC_URL + "/mountain"}>
+                <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
+                  <img
+                    src={mountain}
+                    alt="Mountain"
+                    className="w-6 h-6 inline-block"
+                  />
+                </button>
+              </Link>
               <Button variant="gradient" color="black" className="py-2 px-4 mx-2 rounded-full w-24" onClick={() => setPopUpLogin(true)}>
                 Login
               </Button>
@@ -146,9 +165,10 @@ export default function Navigation() {
             className="w-6 h-6 inline-block"
           />
         </button>
-        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} />
+        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)}/>
         <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} />
         <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />
+        <Notification placement='right' isOpen={isNotification} onClose={() => setNotification(false)}/>
       </div>
     </nav>
   )
