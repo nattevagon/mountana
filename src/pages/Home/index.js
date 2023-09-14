@@ -85,7 +85,7 @@ export default function Home() {
     <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0">
       <div className="relative">
         <Banner data={banners} />
-        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 md:p-6 lg:p-8">
+        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 md:p-6 lg:p-8 mx-16">
           <Typography variant="h1" className="text-center text-white text-lg md:text-4xl lg:text-6xl">Find your outdoors</Typography>
           <div className="flex item-center justify-center mt-2 mb-6 md:mt-4">
             <Button variant="text" color="white" className="rounded-full min-w-min place-self-center">

@@ -15,7 +15,7 @@ export default function Notification(props) {
             placement={props.placement}
             open={props.isOpen}
             onClose={() => props.onClose()}
-            className="p-4"
+            className="p-4 z-50"
             overlay={false}
         >
             <div className="mb-6 flex items-center justify-between">
