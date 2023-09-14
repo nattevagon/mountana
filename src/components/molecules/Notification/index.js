@@ -16,6 +16,7 @@ export default function Notification(props) {
             open={props.isOpen}
             onClose={() => props.onClose()}
             className="p-4 z-50"
+            size={400}
             overlay={false}
         >
             <div className="mb-6 flex items-center justify-between">

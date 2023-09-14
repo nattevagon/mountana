@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { Banner } from "../../components"
-import { Button, Typography } from "@material-tailwind/react";
+import { Button, Typography, Card, CardHeader, CardBody, Avatar } from "@material-tailwind/react";
 import { login } from "../../libs/login";
 
 export default function Home() {
@@ -82,7 +82,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0">
+    <div className="container mx-auto mt-8 px-4 pt-10 sm:pt-20 sm:px-0">
       <div className="relative">
         <Banner data={banners} />
         <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 md:p-6 lg:p-8 mx-16">
@@ -94,7 +94,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="mt-8">
+        <Typography variant="h3">
+          Find your mountain
+        </Typography>
         <div className="container mx-auto">
           <div className="mt-8 mb-8 grid grid-flow-col gap-4 overflow-x-auto no-scrollbar">
             <Button variant="gradient" color="white" className="rounded-full min-w-min" onClick={() => handleLogin()}>
@@ -141,6 +144,77 @@ export default function Home() {
               )
             })}
           </div>
+        </div>
+      </div>
+      <div className="mt-8">
+        <Typography variant="h3" className="mb-4">
+          Find your guidelines
+        </Typography>
+        <div className="mt-8 mb-8 grid grid-flow-col gap-4 overflow-x-auto no-scrollbar">
+          <Card
+            shadow={false}
+            className="min-w-min relative grid w-min-80 items-end justify-center overflow-hidden text-center"
+          >
+            <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="absolute inset-0 m-0 h-full w-full rounded-none bg-[url('https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80')] bg-cover bg-center"
+            >
+              <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
+            </CardHeader>
+            <CardBody className="relative py-14 px-6 md:px-12">
+              <Typography
+                variant="h2"
+                color="white"
+                className="mb-6 font-medium leading-[1.5]"
+              >
+                How we guide you on the mountain?
+              </Typography>
+              <Typography variant="h5" className="mb-4 text-gray-400">
+                Cipung
+              </Typography>
+              <Avatar
+                size="xl"
+                variant="circular"
+                alt="tania andrew"
+                className="border-2 border-white"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+              />
+            </CardBody>
+          </Card>
+          <Card
+            shadow={false}
+            className="min-w-min relative grid w-min-80 items-end justify-center overflow-hidden text-center"
+          >
+            <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="absolute inset-0 m-0 h-full w-full rounded-none bg-[url('https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?cs=srgb&dl=pexels-stephan-seeber-1054218.jpg&fm=jpg')] bg-cover bg-center"
+            >
+              <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
+            </CardHeader>
+            <CardBody className="relative py-14 px-6 md:px-12">
+              <Typography
+                variant="h2"
+                color="white"
+                className="mb-6 font-medium leading-[1.5]"
+              >
+                How we guide you on the tracking?
+              </Typography>
+              <Typography variant="h5" className="mb-4 text-gray-400">
+                Cipung
+              </Typography>
+              <Avatar
+                size="xl"
+                variant="circular"
+                alt="tania andrew"
+                className="border-2 border-white"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+              />
+            </CardBody>
+          </Card>
         </div>
       </div>
     </div>
