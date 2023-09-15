@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Breadcrumb } from '../../components';
-import { Button } from "@material-tailwind/react";
+import { Button, Card } from "@material-tailwind/react";
 
 export default function MountainDetail() {
   const param = useParams();
@@ -13,13 +13,17 @@ export default function MountainDetail() {
     imageUrl: 'https://mediacenter.temanggungkab.go.id/asset/foto_berita/GRASINDO_JALUR_FAVORIT_PARA_PENDAKI.jpg',
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0 flex-1">
       <Breadcrumb
         parent={"mountain"}
         child={param.id}
       />
-      <div className="bg-white rounded-lg mt-4 p-6">
+      <Card className="w-full mt-4 p-6">
         <div className='md:flex'>
           <div className="md:w-1/2">
             <img
@@ -127,7 +131,7 @@ export default function MountainDetail() {
             </li>
           </ol>
         </div>
-      </div>
+      </Card>
     </div>
   )
 }

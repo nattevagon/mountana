@@ -6,6 +6,7 @@ import PopUpLogin from "./PopUpLogin";
 import PopUpRegister from "./PopUpRegister";
 import PopUpMenu from "./PopUpMenu";
 import Notification from "./Notification";
+import Maps from "./Maps";
 
 export {
     Navigation,
@@ -15,5 +16,6 @@ export {
     PopUpLogin,
     PopUpRegister,
     PopUpMenu,
-    Notification
+    Notification,
+    Maps
 }

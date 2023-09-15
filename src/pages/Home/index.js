@@ -1,12 +1,12 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
-import { Banner } from "../../components"
+import { Banner, Maps } from "../../components"
 import { Button, Typography, Card, CardHeader, CardBody, Avatar } from "@material-tailwind/react";
 import { login } from "../../libs/login";
 
 export default function Home() {
   useEffect(() => {
-    // Update the document title using the browser API
+    window.scrollTo(0, 0);
     handleLogin();
   });
 
@@ -88,9 +88,11 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 md:p-6 lg:p-8 mx-16">
           <Typography variant="h1" className="text-center text-white text-lg md:text-4xl lg:text-6xl">Find your outdoors</Typography>
           <div className="flex item-center justify-center mt-2 mb-6 md:mt-4">
-            <Button variant="text" color="white" className="rounded-full min-w-min place-self-center">
-              Explore nearby trails
-            </Button>
+            <Link to={process.env.PUBLIC_URL + '/explore/'}>
+              <Button variant="text" color="white" className="rounded-full min-w-min place-self-center">
+                Explore nearby trails
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -145,6 +147,9 @@ export default function Home() {
             })}
           </div>
         </div>
+      </div>
+      <div className="mt-8">
+        <Maps />
       </div>
       <div className="mt-8">
         <Typography variant="h3" className="mb-4">

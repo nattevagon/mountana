@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { Breadcrumb } from '../../components';
 import {
@@ -31,62 +31,66 @@ export default function Schedule() {
     }
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0 flex-1">
       <Breadcrumb
         parent={"schedule"}
       />
-      <div>
-        <div className="bg-white rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <Card>
+        <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           {schedules.map((item, i) => {
             return (
               <Card className="w-full max-w-[48rem] flex-row">
-              <CardHeader
-                shadow={false}
-                floated={false}
-                className="m-0 w-2/5 shrink-0 rounded-r-none"
-              >
-                <img
-                  src={item.imageUrl}
-                  alt="card-image"
-                  className="h-full w-full object-cover"
-                />
-              </CardHeader>
-              <CardBody className='py-4 px-6 w-full'>
-                <Typography variant="h4" color="blue-gray" className="mb-1">
-                  {item.name}
-                </Typography>
-                <Typography color="gray" className="font-normal">
-                  {item.location}
-                </Typography>
-                <Typography color="gray" className="mb-4 font-normal">
-                  {item.date}
-                </Typography>
-                <a href="#" className="inline-block">
-                  <Button color='black' className="flex items-center gap-2">
-                    See more
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      className="h-4 w-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                      />
-                    </svg>
-                  </Button>
-                </a>
-              </CardBody>
-            </Card>
+                <CardHeader
+                  shadow={false}
+                  floated={false}
+                  className="m-0 w-2/5 shrink-0 rounded-r-none"
+                >
+                  <img
+                    src={item.imageUrl}
+                    alt="card-image"
+                    className="h-full w-full object-cover"
+                  />
+                </CardHeader>
+                <CardBody className='py-4 px-6 w-full'>
+                  <Typography variant="h4" color="blue-gray" className="mb-1">
+                    {item.name}
+                  </Typography>
+                  <Typography color="gray" className="font-normal">
+                    {item.location}
+                  </Typography>
+                  <Typography color="gray" className="mb-4 font-normal">
+                    {item.date}
+                  </Typography>
+                  <a href="#" className="inline-block">
+                    <Button color='black' className="flex items-center gap-2">
+                      See more
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        className="h-4 w-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                        />
+                      </svg>
+                    </Button>
+                  </a>
+                </CardBody>
+              </Card>
             )
           })}
         </div>
-      </div>
+      </Card>
     </div>
   )
 }

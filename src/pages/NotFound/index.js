@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { pageNotFound404 } from '../../assets';
 import { Typography } from '@material-tailwind/react';
-// useEffect(() => {
-//     props.onMenu('notFound')
-// });
 
 export default function NotFound() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0 flex-1 flex items-center justify-center">
       <div className=''>

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, Mountain, MountainDetail, NotFound, Schedule, Wishlist } from "../../pages";
+import { Explore, Home, Mountain, MountainDetail, NotFound, Schedule, Wishlist } from "../../pages";
 import { Footer, Navigation } from "../../components";
 
 export default function Router() {
@@ -10,6 +10,7 @@ export default function Router() {
       <Routes>
         <Route exact path={process.env.PUBLIC_URL+'/'} element={ <Home/> } />
         <Route exact path={process.env.PUBLIC_URL+'/mountain'} element={ <Mountain/> } />
+        <Route exact path={process.env.PUBLIC_URL+'/explore'} element={ <Explore/> } />
         <Route exact path={process.env.PUBLIC_URL+'/mountain/:id'} element={ <MountainDetail/> } />
         <Route exact path={process.env.PUBLIC_URL+'/wishlist'} element={ <Wishlist/> } />
         <Route exact path={process.env.PUBLIC_URL+'/schedule'} element={ <Schedule/> } />
