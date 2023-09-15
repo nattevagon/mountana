@@ -15,17 +15,19 @@ export default function Maps() {
     })
   });
 
-  return (
-    <MapContainer
-      className='rounded-xl'
-      center={[-1.8269461, 109.9777162]}
-      zoom={13}
-      style={{ width: '100%', height: '400px' }}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-    </MapContainer>
-  )
+  if(lat && lng) {
+    return (
+      <MapContainer
+        className='rounded-xl z-0'
+        center={[parseFloat(lat), parseFloat(lng)]}
+        zoom={13}
+        style={{ width: '100%', height: '400px' }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+      </MapContainer>
+    )
+  }
 }
