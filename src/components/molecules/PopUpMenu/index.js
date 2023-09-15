@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { accountCircle, bell, calendar, close, heart, logout, mountain, mountana, settings } from '../../../assets';
+import { accountCircle, bell, calendar, close, expandMore, heart, logout, mountain, mountana, settings } from '../../../assets';
 import { Link, useNavigate } from 'react-router-dom';
-import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody, Typography, Button } from "@material-tailwind/react";
+import {
+  List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody, Typography, Button,
+  Drawer, IconButton
+} from "@material-tailwind/react";
 import { PopUpLogin, PopUpRegister, Notification } from '../../../components'
 
 export default function PopUpMenu(props) {
@@ -9,7 +12,6 @@ export default function PopUpMenu(props) {
   const [isLogin, setLogin] = useState(false);
   const [isPopUpLogin, setPopUpLogin] = useState(false);
   const [isPopUpRegister, setPopUpRegister] = useState(false);
-  const [isNotification, setNotification] = useState(false);
   const [open, setOpen] = useState(0);
 
   useEffect(() => {
@@ -48,13 +50,22 @@ export default function PopUpMenu(props) {
   }
 
   return (
-    <div className={props.isOpen ? 'fixed inset-0 flex items-center justify-center z-50' : 'hidden'} >
-      <div className="modal-container bg-white z-50 overflow-y-auto lg:flex lg:items-center w-full h-full">
-        <div className="modal-content text-left">
-          <div className='px-4 py-4 lg:px-8 lg:py-4'>
+    <Drawer
+      className="z-50 p-0"
+      placement="right"
+      open={props.isOpen}
+      onClose={() => props.onClose()}
+      size={1000}
+      overlay={false}
+    >
+      <div className="modal-container bg-white z-50 overflow-y-hidden w-full h-full">
+        <div className="container mx-auto modal-content text-left">
+          <div className='px-4 py-4 lg:p-8'>
             <div className='container mx-auto flex items-center justify-between w-full z-10'>
-              <img className='w-40 lg:w-60' src={mountana} alt='Logo' onClick={() => handleClickMenu('/mountain')} />
-              <button className='lg:hidden bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-full' onClick={props.onClose}>
+              <a className='md:mr-8 md:p-6 md:pl-0' onClick={() => handleClickMenu('/mountain')}>
+                <img className='w-40 lg:w-52' src={mountana} alt='Logo' />
+              </a>
+              <button className='bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-full' onClick={props.onClose}>
                 <img
                   src={close}
                   alt="Bell"
@@ -63,8 +74,9 @@ export default function PopUpMenu(props) {
               </button>
             </div>
           </div>
-          <div className="px-8">
-            <List>
+          <hr className="mb-2 border-blue-gray-50" />
+          <div>
+            <List className='pl-1 pr-1'>
               {!isLogin ?
                 <div>
                   <div className='flex items-center justify-between mb-4'>
@@ -79,20 +91,21 @@ export default function PopUpMenu(props) {
                 :
                 <Accordion
                   open={open === 1}
-                // icon={
-                //   <ChevronDownIcon
-                //     strokeWidth={2.5}
-                //     className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
-                //   />
-                // }
+                  icon={
+                    <img
+                      className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
+                      src={expandMore}
+                      alt='Chevron'
+                    />
+                  }
                 >
                   <ListItem className="p-0" selected={open === 1}>
                     <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
                       <ListItemPrefix>
                         <img
                           className="w-8 h-8 m-auto rounded-full object-cover object-center"
-                          src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                          alt="nature image"
+                          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                          alt="Account"
                         />
                       </ListItemPrefix>
                       <Typography color="blue-gray" className="mr-auto font-normal">
@@ -190,6 +203,7 @@ export default function PopUpMenu(props) {
       </div>
       <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} />
       <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />
-    </div>
+    </Drawer>
+
   );
 }

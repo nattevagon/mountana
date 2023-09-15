@@ -183,38 +183,6 @@ export default function Home() {
               />
             </CardBody>
           </Card>
-          <Card
-            shadow={false}
-            className="min-w-min relative grid w-min-80 items-end justify-center overflow-hidden text-center"
-          >
-            <CardHeader
-              floated={false}
-              shadow={false}
-              color="transparent"
-              className="absolute inset-0 m-0 h-full w-full rounded-none bg-[url('https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?cs=srgb&dl=pexels-stephan-seeber-1054218.jpg&fm=jpg')] bg-cover bg-center"
-            >
-              <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-            </CardHeader>
-            <CardBody className="relative py-14 px-6 md:px-12">
-              <Typography
-                variant="h2"
-                color="white"
-                className="mb-6 font-medium leading-[1.5]"
-              >
-                How we guide you on the tracking?
-              </Typography>
-              <Typography variant="h5" className="mb-4 text-gray-400">
-                Cipung
-              </Typography>
-              <Avatar
-                size="xl"
-                variant="circular"
-                alt="tania andrew"
-                className="border-2 border-white"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-              />
-            </CardBody>
-          </Card>
         </div>
       </div>
     </div>

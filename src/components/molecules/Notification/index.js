@@ -12,10 +12,10 @@ import {
 export default function Notification(props) {
     return (
         <Drawer
-            placement={props.placement}
+            className="p-4 z-50"
+            placement="right"
             open={props.isOpen}
             onClose={() => props.onClose()}
-            className="p-4 z-50"
             size={400}
             overlay={false}
         >

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { accountCircle, bell, calendar, heart, logout, menuBar, mountain, mountana, search, settings } from '../../../assets'
+import { accountCircle, bell, calendar, close, heart, logout, menuBar, mountain, mountana, search, settings } from '../../../assets'
 import { PopUpLogin, PopUpRegister, PopUpMenu, Notification } from '../../../components'
 import { Link } from 'react-router-dom'
 import { Menu, MenuHandler, MenuList, MenuItem, Button, List, ListItem, ListItemPrefix, Badge } from '@material-tailwind/react';
@@ -95,13 +95,13 @@ export default function Navigation() {
                   <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full h-12 flex">
                     <img
                       className="w-8 h-8 m-auto rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                      alt="nature image"
+                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                      alt="Account"
                     />
                     {/* <p className='ml-2 text-black my-auto hidden xlg:flex'>User Name</p> */}
                   </button>
                 </MenuHandler>
-                <MenuList>
+                <MenuList className='rounded-xlg'>
                   <List className='outline-none p-0'>
                     <ListItem>
                       <ListItemPrefix>
@@ -158,17 +158,17 @@ export default function Navigation() {
           }
         </div>
         {/* Navigation Apps */}
-        <button className='lg:hidden bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 rounded-full' onClick={() => setPopUpMenu(true)}>
-          <img
-            src={menuBar}
-            alt="Bell"
-            className="w-6 h-6 inline-block"
-          />
-        </button>
-        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)}/>
+          <button className='lg:hidden bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 rounded-full' onClick={() => setPopUpMenu(true)}>
+            <img
+              src={menuBar}
+              alt="Bell"
+              className="w-6 h-6 inline-block"
+            />
+          </button>
+        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)} />
         <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} />
         <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />
-        <Notification placement='right' isOpen={isNotification} onClose={() => setNotification(false)}/>
+        <Notification isOpen={isNotification} onClose={() => setNotification(false)} />
       </div>
     </nav>
   )
