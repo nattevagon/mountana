@@ -18,8 +18,14 @@
       scrollbar-width: none;
       /* Firefox */
     }
+
+    /* // Min Height // */
+    .min-apps-height {
+      min-height: calc(100vh - 32px);
+      height: 100%;
+    }
   }
-}
+}    
 
 body {
   margin: 0;

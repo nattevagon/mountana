@@ -29,7 +29,7 @@ export default function Wishlist() {
   ];
 
   return (
-<div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0">
+<div className="container mx-auto mt-8 px-4 py-10 sm:py-20 sm:px-0 flex-1">
       <Breadcrumb
         parent={"wishlist"}
       />

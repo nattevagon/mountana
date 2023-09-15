@@ -82,7 +82,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container mx-auto mt-8 px-4 pt-10 sm:pt-20 sm:px-0">
+    <div className="container mx-auto mt-8 px-4 pt-10 sm:pt-20 sm:px-0 flex-1">
       <div className="relative">
         <Banner data={banners} />
         <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 md:p-6 lg:p-8 mx-16">

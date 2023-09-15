@@ -22,6 +22,7 @@ import logout from './icons/logout.svg'
 import mountana from './logos/mountana.png'
 
 //Others
+import pageNotFound404 from './others/404-page-not-found.svg'
 
 export {
     mountana,
@@ -42,5 +43,6 @@ export {
     mountain,
     accountCircle,
     settings,
-    logout
+    logout,
+    pageNotFound404
 }

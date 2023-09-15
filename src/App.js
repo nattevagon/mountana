@@ -2,7 +2,7 @@ import { Router } from './config';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App min-h-screen flex flex-col">
       <Router />
     </div>
   );
