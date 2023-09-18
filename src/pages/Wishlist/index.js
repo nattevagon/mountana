@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom';
-import { Breadcrumb } from '../../components';
-import { Button, Card } from '@material-tailwind/react';
+import React, { useEffect } from "react"
+import { Link } from "react-router-dom";
+import { Breadcrumb } from "components";
+import { Button, Card } from "@material-tailwind/react";
 
 export default function Wishlist() {
   const mountain = [
@@ -43,7 +43,7 @@ export default function Wishlist() {
             return (
               <div>
                 <div key={product.id} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out" >
-                  <Link className="relative" to={process.env.PUBLIC_URL + '/mountain/' + product.url}>
+                  <Link className="relative" to={process.env.PUBLIC_URL + "/mountain/" + product.url}>
                     <div
                       className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                       <a href="#!">

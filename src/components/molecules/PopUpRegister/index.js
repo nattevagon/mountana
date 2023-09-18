@@ -1,16 +1,9 @@
-import React from 'react';
-import {
-  Button,
-  Dialog,
-  DialogBody,
-  Input,
-  Checkbox,
-  Typography,
-} from "@material-tailwind/react";
+import React from "react";
+import { Button, Dialog, DialogBody, Input, Typography } from "@material-tailwind/react";
 
 export default function PopUpRegister(props) {
   let handleSubmit = () => {
-    console.log('Submit')
+    console.log("Submit")
   }
 
   return (

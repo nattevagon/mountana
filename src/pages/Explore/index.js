@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Link } from "react-router-dom"
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { List, ListItem, Card, Button, Typography } from "@material-tailwind/react";
-import { Breadcrumb, Maps } from "../../components";
+import { Breadcrumb, Maps } from "components";
 
 export default function Explore() {
   useEffect(() => {
@@ -45,13 +45,13 @@ export default function Explore() {
         {/* Left Column */}
         <div className="p-2 px-0 w-full lg:pr-2 lg:w-64">
           <Card>
-            <List className='flex-row lg:flex-col'>
+            <List className="flex-row lg:flex-col">
               <ListItem>Nearby</ListItem>
               <ListItem>Recomended</ListItem>
               <ListItem>Popular</ListItem>
             </List>
           </Card>
-          <Card className='mt-4'>
+          <Card className="mt-4">
             <Maps/>
           </Card>
         </div>
@@ -63,7 +63,7 @@ export default function Explore() {
                 return (
                   <div>
                     <div key={product.id} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out" >
-                      <Link className="relative" to={process.env.PUBLIC_URL + '/mountain/' + product.url}>
+                      <Link className="relative" to={process.env.PUBLIC_URL + "/mountain/" + product.url}>
                         <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                           <a href="#!">
                             <img
@@ -73,14 +73,14 @@ export default function Explore() {
                           </a>
                           <div className="p-6">
                             <Typography
-                              variant='h5'
+                              variant="h5"
                               className="mb-3 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                               {product.name}
                             </Typography>
-                            <Typography variant='p' className="mb-1 text-base text-neutral-600 dark:text-neutral-200">
+                            <Typography variant="p" className="mb-1 text-base text-neutral-600 dark:text-neutral-200">
                               {product.description}
                             </Typography>
-                            <Typography variant='p' className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                            <Typography variant="p" className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                               {product.location}
                             </Typography>
                             <Button>See more!</Button>

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom';
-import { Breadcrumb } from '../../components';
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Breadcrumb } from "components";
 import { Button, Card } from "@material-tailwind/react";
 
 export default function MountainDetail() {
@@ -8,9 +8,9 @@ export default function MountainDetail() {
 
   const product = {
     id: 1,
-    name: 'Base Camp Gunung Sindoro Via Kledung',
-    description: 'Gunung Sindoro, biasa disebut Sindara, atau juga Sundoro (Ketinggian puncak 3.136 mdpl) merupakan sebuah gunung volkano aktif yang terletak di Jawa Tengah, Indonesia, dengan Temanggung sebagai kota terdekat. Gunung Sindoro terletak berdampingan dengan Gunung Sumbing, ada yang menyebutnya gunung kembar dapat terlihat jelas dari Sunrisecamp Prau sebagai icon pemandangan Gunung Prau',
-    imageUrl: 'https://mediacenter.temanggungkab.go.id/asset/foto_berita/GRASINDO_JALUR_FAVORIT_PARA_PENDAKI.jpg',
+    name: "Base Camp Gunung Sindoro Via Kledung",
+    description: "Gunung Sindoro, biasa disebut Sindara, atau juga Sundoro (Ketinggian puncak 3.136 mdpl) merupakan sebuah gunung volkano aktif yang terletak di Jawa Tengah, Indonesia, dengan Temanggung sebagai kota terdekat. Gunung Sindoro terletak berdampingan dengan Gunung Sumbing, ada yang menyebutnya gunung kembar dapat terlihat jelas dari Sunrisecamp Prau sebagai icon pemandangan Gunung Prau",
+    imageUrl: "https://mediacenter.temanggungkab.go.id/asset/foto_berita/GRASINDO_JALUR_FAVORIT_PARA_PENDAKI.jpg",
   };
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function MountainDetail() {
         child={param.id}
       />
       <Card className="w-full mt-4 p-6">
-        <div className='md:flex'>
+        <div className="md:flex">
           <div className="md:w-1/2">
             <img
               className="h-96 w-full rounded-lg object-cover object-center shadow-xl shadow-blue-gray-300/50"
@@ -35,7 +35,7 @@ export default function MountainDetail() {
           <div className="md:w-1/2 md:ml-8">
             <h1 className="text-3xl font-semibold mt-4 mb-4 sm:mt-0">{product.name}</h1>
             <p className="text-gray-600">{product.description}</p>
-            <div className='mt-4'>
+            <div className="mt-4">
               <h1 className="text-xl font-semibold mb-4">Information</h1>
               <div className="flex flex-col">
                 <div className="overflow-x-auto">
@@ -62,12 +62,12 @@ export default function MountainDetail() {
                 </div>
               </div>
             </div>
-            <div className='mt-4 mb-4'>
+            <div className="mt-4 mb-4">
               <Button fullWidth>Book Now</Button>
             </div>
           </div>
         </div>
-        <div className='mt-4'>
+        <div className="mt-4">
           <h1 className="text-xl font-semibold mb-4">Itinerary</h1>
           <ol className="border-l border-neutral-300 dark:border-neutral-500">
             {/* <!--First item--> */}

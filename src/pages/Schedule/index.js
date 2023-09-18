@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom';
-import { Breadcrumb } from '../../components';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Breadcrumb } from "components";
 import {
   Card,
   CardHeader,
@@ -56,7 +56,7 @@ export default function Schedule() {
                     className="h-full w-full object-cover"
                   />
                 </CardHeader>
-                <CardBody className='py-4 px-6 w-full'>
+                <CardBody className="py-4 px-6 w-full">
                   <Typography variant="h4" color="blue-gray" className="mb-1">
                     {item.name}
                   </Typography>
@@ -67,7 +67,7 @@ export default function Schedule() {
                     {item.date}
                   </Typography>
                   <a href="#" className="inline-block">
-                    <Button color='black' className="flex items-center gap-2">
+                    <Button color="black" className="flex items-center gap-2">
                       See more
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

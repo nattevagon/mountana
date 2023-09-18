@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Button,
   Dialog,
@@ -10,7 +10,7 @@ import {
 
 export default function PopUpLogin(props) {
   let handleSubmit = () => {
-    console.log('Submit')
+    console.log("Submit")
     localStorage.setItem("isLogin", true);
     window.location.reload();
   }

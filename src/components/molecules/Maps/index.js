@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css'; // Make sure to import Leaflet's CSS for styling
+import React, { useEffect, useState } from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css"; // Make sure to import Leaflet"s CSS for styling
 
 export default function Maps() {
   const [lat, setLat] = useState(false);
@@ -18,14 +18,14 @@ export default function Maps() {
   if(lat && lng) {
     return (
       <MapContainer
-        className='rounded-xl z-0'
+        className="rounded-xl z-0"
         center={[parseFloat(lat), parseFloat(lng)]}
         zoom={13}
-        style={{ width: '100%', height: '400px' }}
+        style={{ width: "100%", height: "400px" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
         />
       </MapContainer>
     )

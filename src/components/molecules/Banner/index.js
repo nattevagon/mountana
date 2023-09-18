@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Carousel } from "@material-tailwind/react";
 
 export default function Banner(props) {
@@ -13,7 +13,7 @@ export default function Banner(props) {
           {new Array(length).fill("").map((_, i) => (
             <span
               key={i}
-              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
+              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[""] ${
                 activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
               }`}
               onClick={() => setActiveIndex(i)}

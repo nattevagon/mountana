@@ -24,6 +24,12 @@
       min-height: calc(100vh - 32px);
       height: 100%;
     }
+
+    /* //Drawer// */
+    .drawer-open {
+      overflow: hidden;
+      height: 100%;
+    }
   }
 }    
 

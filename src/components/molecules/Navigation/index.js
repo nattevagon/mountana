@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { accountCircle, bell, calendar, close, heart, logout, menuBar, mountain, mountana, search, settings } from '../../../assets'
-import { PopUpLogin, PopUpRegister, PopUpMenu, Notification } from '../../../components'
-import { Link } from 'react-router-dom'
-import { Menu, MenuHandler, MenuList, MenuItem, Button, List, ListItem, ListItemPrefix, Badge } from '@material-tailwind/react';
+import React, { useEffect, useState } from "react";
+import { accountCircle, bell, calendar, explore, heart, logout, menuBar, mountain, mountana, search, settings } from "assets";
+import { PopUpLogin, PopUpRegister, PopUpMenu, Notification } from "components";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, MenuHandler, MenuList, Button, List, ListItem, ListItemPrefix, Badge } from "@material-tailwind/react";
 
 export default function Navigation() {
   const [isLogin, setLogin] = useState(false);
@@ -11,6 +11,7 @@ export default function Navigation() {
   const [isPopUpRegister, setPopUpRegister] = useState(false);
   const [isNotification, setNotification] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
+  const history = useNavigate();
 
   useEffect(() => {
     const handleScroll = event => {
@@ -20,10 +21,10 @@ export default function Navigation() {
     let isLogin = localStorage.getItem("isLogin");
     setLogin(isLogin)
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -32,14 +33,18 @@ export default function Navigation() {
     window.location.reload();
   }
 
+  let handleRedirect = (url) => {
+    history(url);
+  }
+
   return (
-    <nav className={'px-4 py-4 fixed top-0 w-full z-10 transition duration-300' + (scrollTop > 20 ? ' bg-gray-100 shadow-md' : 'bg-transparent')}>
-      <div className='container flex items-center justify-between mx-auto relative'>
-        <Link className='md:mr-8 md:p-6 md:pl-0' to={process.env.PUBLIC_URL}>
-          <img className='w-40 lg:w-52' src={mountana} alt='Logo' />
+    <nav className={"px-4 py-4 fixed top-0 w-full z-10 transition duration-300" + (scrollTop > 20 ? " bg-gray-100 shadow-md" : "bg-transparent")}>
+      <div className="container flex items-center justify-between mx-auto relative">
+        <Link className="md:mr-8 md:p-6 md:pl-0" to={process.env.PUBLIC_URL}>
+          <img className="w-40 lg:w-52" src={mountana} alt="Logo" />
         </Link>
         {/* Navigation Desktop */}
-        <div className='bg-gray-100 p-4 rounded-full hidden lg:flex '>
+        <div className="bg-gray-100 p-4 rounded-full hidden lg:flex ">
           <div className="relative mx-2 h-full">
             <input
               type="text"
@@ -53,21 +58,21 @@ export default function Navigation() {
             />
           </div>
           {isLogin ?
-            <div className='flex'>
+            <div className="flex">
+              <Link to={process.env.PUBLIC_URL + "/explore"}>
+                <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
+                  <img
+                    src={explore}
+                    alt="Explore"
+                    className="w-6 h-6 inline-block"
+                  />
+                </button>
+              </Link>
               <Link to={process.env.PUBLIC_URL + "/mountain"}>
                 <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
                   <img
                     src={mountain}
                     alt="Mountain"
-                    className="w-6 h-6 inline-block"
-                  />
-                </button>
-              </Link>
-              <Link to={process.env.PUBLIC_URL + "/wishlist"}>
-                <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
-                  <img
-                    src={heart}
-                    alt="Wishlist"
                     className="w-6 h-6 inline-block"
                   />
                 </button>
@@ -81,7 +86,7 @@ export default function Navigation() {
                   />
                 </button>
               </Link>
-              <Badge content="3" className='top-2 right-4'>
+              <Badge content="3" className="top-2 right-4">
                 <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12" onClick={() => setNotification(true)}>
                   <img
                     src={bell}
@@ -98,11 +103,11 @@ export default function Navigation() {
                       src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
                       alt="Account"
                     />
-                    {/* <p className='ml-2 text-black my-auto hidden xlg:flex'>User Name</p> */}
+                    {/* <p className="ml-2 text-black my-auto hidden xlg:flex">User Name</p> */}
                   </button>
                 </MenuHandler>
-                <MenuList className='rounded-xlg'>
-                  <List className='outline-none p-0'>
+                <MenuList className="rounded-xlg">
+                  <List className="outline-none p-0">
                     <ListItem>
                       <ListItemPrefix>
                         <img
@@ -112,6 +117,16 @@ export default function Navigation() {
                         />
                       </ListItemPrefix>
                       Account
+                    </ListItem>
+                    <ListItem onClick={() => handleRedirect("/wishlist")}>
+                      <ListItemPrefix>
+                        <img
+                          src={heart}
+                          alt="Heart"
+                          className="w-6 h-6 inline-block my-auto"
+                        />
+                      </ListItemPrefix>
+                      Wishlist
                     </ListItem>
                     <ListItem>
                       <ListItemPrefix>
@@ -138,7 +153,16 @@ export default function Navigation() {
               </Menu>
             </div>
             :
-            <div className='flex'>
+            <div className="flex">
+              <Link to={process.env.PUBLIC_URL + "/explore"}>
+                <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
+                  <img
+                    src={explore}
+                    alt="Explore"
+                    className="w-6 h-6 inline-block"
+                  />
+                </button>
+              </Link>
               <Link to={process.env.PUBLIC_URL + "/mountain"}>
                 <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full w-14 h-12">
                   <img
@@ -158,13 +182,13 @@ export default function Navigation() {
           }
         </div>
         {/* Navigation Apps */}
-          <button className='lg:hidden bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 rounded-full' onClick={() => setPopUpMenu(true)}>
-            <img
-              src={menuBar}
-              alt="Bell"
-              className="w-6 h-6 inline-block"
-            />
-          </button>
+        <button className="lg:hidden bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 rounded-full" onClick={() => setPopUpMenu(true)}>
+          <img
+            src={menuBar}
+            alt="Bell"
+            className="w-6 h-6 inline-block"
+          />
+        </button>
         <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)} />
         <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} />
         <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />

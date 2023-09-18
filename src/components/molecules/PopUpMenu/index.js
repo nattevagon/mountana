@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { accountCircle, bell, calendar, close, expandMore, heart, logout, mountain, mountana, settings } from '../../../assets';
-import { Link, useNavigate } from 'react-router-dom';
-import {
-  List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody, Typography, Button,
-  Drawer, IconButton
-} from "@material-tailwind/react";
-import { PopUpLogin, PopUpRegister, Notification } from '../../../components'
+import React, { useEffect, useState } from "react";
+import { accountCircle, bell, calendar, close, expandMore, explore, heart, logout, mountain, mountana, settings } from "assets";
+import { Link, useNavigate } from "react-router-dom";
+import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody, Typography, Button, Drawer } from "@material-tailwind/react";
+import { PopUpLogin, PopUpRegister } from "components";
 
 export default function PopUpMenu(props) {
   const history = useNavigate();
@@ -17,7 +14,21 @@ export default function PopUpMenu(props) {
   useEffect(() => {
     let isLogin = localStorage.getItem("isLogin");
     setLogin(isLogin)
-  }, []);
+
+    if (props.isOpen) {
+      // Save the current scroll position
+      const scrollY = window.scrollY;
+
+      // Disable scrolling on the body element
+      document.body.classList.add("overflow-hidden", "xl:overflow-auto")
+
+      // Restore the scroll position when the drawer is closed
+      return () => {
+        document.body.classList.remove("overflow-hidden", "xl:overflow-auto");
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [props.isOpen]);
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -31,7 +42,7 @@ export default function PopUpMenu(props) {
   let handleLoginRegister = (status) => {
     props.onClose();
 
-    if (status === 'login') {
+    if (status === "login") {
       setPopUpLogin(true)
     }
     else {
@@ -55,17 +66,17 @@ export default function PopUpMenu(props) {
       placement="right"
       open={props.isOpen}
       onClose={() => props.onClose()}
-      size={1000}
+      size={1140}
       overlay={false}
     >
       <div className="modal-container bg-white z-50 overflow-y-hidden w-full h-full">
         <div className="container mx-auto modal-content text-left">
-          <div className='px-4 py-4 lg:p-8'>
-            <div className='container mx-auto flex items-center justify-between w-full z-10'>
-              <a className='md:mr-8 md:p-6 md:pl-0' onClick={() => handleClickMenu('/mountain')}>
-                <img className='w-40 lg:w-52' src={mountana} alt='Logo' />
+          <div className="px-4 py-4 lg:p-8">
+            <div className="container mx-auto flex items-center justify-between w-full z-10">
+              <a className="md:mr-8 md:p-6 md:pl-0" onClick={() => handleClickMenu("/mountain")}>
+                <img className="w-40 lg:w-52" src={mountana} alt="Logo" />
               </a>
-              <button className='bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-full' onClick={props.onClose}>
+              <button className="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-full" onClick={props.onClose}>
                 <img
                   src={close}
                   alt="Bell"
@@ -76,14 +87,14 @@ export default function PopUpMenu(props) {
           </div>
           <hr className="mb-2 border-blue-gray-50" />
           <div>
-            <List className='pl-1 pr-1'>
+            <List className="pl-1 pr-1">
               {!isLogin ?
                 <div>
-                  <div className='flex items-center justify-between mb-4'>
-                    <Button variant="gradient" color="black" className="py-2 px-4 mr-2 rounded-full w-full h-10" onClick={() => handleLoginRegister('login')}>
+                  <div className="flex items-center justify-between mb-4">
+                    <Button variant="gradient" color="black" className="py-2 px-4 mr-2 rounded-full w-full h-10" onClick={() => handleLoginRegister("login")}>
                       Login
                     </Button>
-                    <Button variant="gradient" color="black" className="py-2 px-4 ml-2 rounded-full w-full h-10" onClick={() => handleLoginRegister('register')}>
+                    <Button variant="gradient" color="black" className="py-2 px-4 ml-2 rounded-full w-full h-10" onClick={() => handleLoginRegister("register")}>
                       Register
                     </Button>
                   </div>
@@ -95,7 +106,7 @@ export default function PopUpMenu(props) {
                     <img
                       className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
                       src={expandMore}
-                      alt='Chevron'
+                      alt="Chevron"
                     />
                   }
                 >
@@ -125,6 +136,16 @@ export default function PopUpMenu(props) {
                         </ListItemPrefix>
                         Account
                       </ListItem>
+                      <ListItem onClick={() => handleClickMenu("/wishlist")}>
+                        <ListItemPrefix>
+                          <img
+                            src={heart}
+                            alt="heart"
+                            className="w-6 h-6 inline-block my-auto"
+                          />
+                        </ListItemPrefix>
+                        Wishlist
+                      </ListItem>
                       <ListItem>
                         <ListItemPrefix>
                           <img
@@ -150,7 +171,17 @@ export default function PopUpMenu(props) {
                 </Accordion>
               }
               <hr className="my-2 border-blue-gray-50" />
-              <ListItem onClick={() => handleClickMenu('/mountain')}>
+              <ListItem onClick={() => handleClickMenu("/explore")}>
+                <ListItemPrefix>
+                  <img
+                    src={explore}
+                    alt="Explore"
+                    className="w-6 h-6 inline-block my-auto"
+                  />
+                </ListItemPrefix>
+                Explore
+              </ListItem>
+              <ListItem onClick={() => handleClickMenu("/mountain")}>
                 <ListItemPrefix>
                   <img
                     src={mountain}
@@ -162,17 +193,7 @@ export default function PopUpMenu(props) {
               </ListItem>
               {isLogin ?
                 <div>
-                  <ListItem onClick={() => handleClickMenu('/wishlist')}>
-                    <ListItemPrefix>
-                      <img
-                        src={heart}
-                        alt="Wishlist"
-                        className="w-6 h-6 inline-block my-auto"
-                      />
-                    </ListItemPrefix>
-                    Wishlist
-                  </ListItem>
-                  <ListItem onClick={() => handleClickMenu('/schedule')}>
+                  <ListItem onClick={() => handleClickMenu("/schedule")}>
                     <ListItemPrefix>
                       <img
                         src={calendar}

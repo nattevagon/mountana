@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom"
-import { Banner, Maps } from "../../components"
+import { Banner, Maps } from "../../components";
 import { Button, Typography, Card, CardHeader, CardBody, Avatar } from "@material-tailwind/react";
 import { login } from "../../libs/login";
 
@@ -76,7 +76,7 @@ export default function Home() {
   ];
 
   let handleLogin = () => {
-    login({ username: 'natte', password: 'vagon' }, result => {
+    login({ username: "natte", password: "vagon" }, result => {
       console.log(result)
     })
   }
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 md:p-6 lg:p-8 mx-16">
           <Typography variant="h1" className="text-center text-white text-lg md:text-4xl lg:text-6xl">Find your outdoors</Typography>
           <div className="flex item-center justify-center mt-2 mb-6 md:mt-4">
-            <Link to={process.env.PUBLIC_URL + '/explore/'}>
+            <Link to={process.env.PUBLIC_URL + "/explore/"}>
               <Button variant="text" color="white" className="rounded-full min-w-min place-self-center">
                 Explore nearby trails
               </Button>
@@ -120,7 +120,7 @@ export default function Home() {
               return (
                 <div>
                   <div key={product.id} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out" >
-                    <Link className="relative" to={process.env.PUBLIC_URL + '/mountain/' + product.url}>
+                    <Link className="relative" to={process.env.PUBLIC_URL + "/mountain/" + product.url}>
                       <div
                         className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                         <a href="#!">
