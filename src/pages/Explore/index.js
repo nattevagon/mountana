@@ -1,12 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { List, ListItem, Card, Button, Typography } from "@material-tailwind/react";
 import { Breadcrumb, Maps } from "components";
 
 export default function Explore() {
+  let [lat, setLat] = useState(false);
+  let [lng, setLng] = useState(false);
+
   useEffect(() => {
+    navigator?.geolocation.getCurrentPosition(({ coords: { latitude: lat, longitude: lng } }) => {
+      setLat(lat)
+      setLng(lng)
+    })
+
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   const mountain = [
     {
@@ -52,13 +60,17 @@ export default function Explore() {
             </List>
           </Card>
           <Card className="mt-4">
-            <Maps/>
+            <Maps
+              lat={lat}
+              lng={lng}
+              zoom={15}
+            />
           </Card>
         </div>
         {/* Right Column */}
         <div className="p-2 px-0 w-full lg:pl-2 lg:flex-1">
           <Card>
-            <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {mountain.map((product, i) => {
                 return (
                   <div>

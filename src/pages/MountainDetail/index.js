@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Breadcrumb } from "components";
-import { Button, Card } from "@material-tailwind/react";
+import { Breadcrumb, Maps } from "components";
+import { Button, Card, Tabs, TabsHeader, TabsBody, Tab, TabPanel, Carousel, Typography } from "@material-tailwind/react";
+import { heart } from "assets";
 
 export default function MountainDetail() {
   const param = useParams();
@@ -62,74 +63,124 @@ export default function MountainDetail() {
                 </div>
               </div>
             </div>
-            <div className="mt-4 mb-4">
+            <div className="mt-4 mb-4 flex item-center">
+              <Button className="p-2 mr-4">
+                <img
+                  src={heart}
+                  alt="heart"
+                  className="w-8 h-6 inline-block my-auto"
+                />
+              </Button>
               <Button fullWidth>Book Now</Button>
             </div>
           </div>
         </div>
+        <hr className="my-2 border-blue-gray-50" />
         <div className="mt-4">
-          <h1 className="text-xl font-semibold mb-4">Itinerary</h1>
-          <ol className="border-l border-neutral-300 dark:border-neutral-500">
-            {/* <!--First item--> */}
-            <li>
-              <div className="flex-start flex items-center pt-3">
-                <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500"></div>
-                <p className="text-sm text-neutral-500 dark:text-neutral-300">
-                  01.07.2021
-                </p>
-              </div>
-              <div className="mb-6 ml-4 mt-2">
-                <h4 className="mb-1.5 text-xl font-semibold">
-                  Title of section 1
-                </h4>
-                <p className="mb-3 text-neutral-500 dark:text-neutral-300">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                  scelerisque diam non nisi semper, et elementum lorem ornare.
-                  Maecenas placerat facilisis mollis. Duis sagittis ligula in
-                  sodales vehicula.
-                </p>
-              </div>
-            </li>
-            {/* <!--Second item--> */}
-            <li>
-              <div className="flex-start flex items-center pt-2">
-                <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500"></div>
-                <p className="text-sm text-neutral-500 dark:text-neutral-300">
-                  13.09.2021
-                </p>
-              </div>
-              <div className="mb-6 ml-4 mt-2">
-                <h4 className="mb-1.5 text-xl font-semibold">
-                  Title of section 2
-                </h4>
-                <p className="mb-3 text-neutral-500 dark:text-neutral-300">
-                  Libero expedita explicabo eius fugiat quia aspernatur autem
-                  laudantium error architecto recusandae natus sapiente sit nam
-                  eaque, consectetur porro molestiae ipsam an deleniti.
-                </p>
-              </div>
-            </li>
-            {/* <!--Third item--> */}
-            <li>
-              <div className="flex-start flex items-center pt-2">
-                <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500"></div>
-                <p className="text-sm text-neutral-500 dark:text-neutral-300">
-                  25.11.2021
-                </p>
-              </div>
-              <div className="ml-4 mt-2 pb-5">
-                <h4 className="mb-1.5 text-xl font-semibold">
-                  Title of section 3
-                </h4>
-                <p className="mb-3 text-neutral-500 dark:text-neutral-300">
-                  Voluptatibus temporibus esse illum eum aspernatur, fugiat
-                  suscipit natus! Eum corporis illum nihil officiis tempore.
-                  Excepturi illo natus libero sit doloremque, laborum molestias
-                  rerum pariatur quam ipsam necessitatibus incidunt, explicabo.
-                </p>
-              </div>
-            </li>
-          </ol>
+          <Tabs value="location">
+            <TabsHeader>
+              <Tab key={0} value="location">
+                Location
+              </Tab>
+              <Tab key={1} value="itinerary">
+                Itinerary
+              </Tab>
+            </TabsHeader>
+            <TabsBody>
+              <TabPanel className="p-0 pt-4" key={0} value="location">
+                <Typography variant="h4" className="mb-4">Location</Typography>
+                <Maps
+                  lat={-7.339263353986866}
+                  lng={110.03179334750635}
+                  zoom={14}
+                />
+              </TabPanel>
+              <TabPanel className="p-0 pt-4" key={1} value="itinerary">
+                <Typography variant="h4" className="mb-4">Itinerary</Typography>
+                <ol className="border-l border-neutral-300 dark:border-neutral-500">
+                  {/* <!--First item--> */}
+                  <li>
+                    <div className="flex-start flex items-center pt-3">
+                      <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500"></div>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-300">
+                        01.07.2021
+                      </p>
+                    </div>
+                    <div className="mb-6 ml-4 mt-2">
+                      <h4 className="mb-1.5 text-xl font-semibold">
+                        Title of section 1
+                      </h4>
+                      <p className="mb-3 text-neutral-500 dark:text-neutral-300">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                        scelerisque diam non nisi semper, et elementum lorem ornare.
+                        Maecenas placerat facilisis mollis. Duis sagittis ligula in
+                        sodales vehicula.
+                      </p>
+                    </div>
+                  </li>
+                  {/* <!--Second item--> */}
+                  <li>
+                    <div className="flex-start flex items-center pt-2">
+                      <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500"></div>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-300">
+                        13.09.2021
+                      </p>
+                    </div>
+                    <div className="mb-6 ml-4 mt-2">
+                      <h4 className="mb-1.5 text-xl font-semibold">
+                        Title of section 2
+                      </h4>
+                      <p className="mb-3 text-neutral-500 dark:text-neutral-300">
+                        Libero expedita explicabo eius fugiat quia aspernatur autem
+                        laudantium error architecto recusandae natus sapiente sit nam
+                        eaque, consectetur porro molestiae ipsam an deleniti.
+                      </p>
+                    </div>
+                  </li>
+                  {/* <!--Third item--> */}
+                  <li>
+                    <div className="flex-start flex items-center pt-2">
+                      <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500"></div>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-300">
+                        25.11.2021
+                      </p>
+                    </div>
+                    <div className="ml-4 mt-2 pb-5">
+                      <h4 className="mb-1.5 text-xl font-semibold">
+                        Title of section 3
+                      </h4>
+                      <p className="mb-3 text-neutral-500 dark:text-neutral-300">
+                        Voluptatibus temporibus esse illum eum aspernatur, fugiat
+                        suscipit natus! Eum corporis illum nihil officiis tempore.
+                        Excepturi illo natus libero sit doloremque, laborum molestias
+                        rerum pariatur quam ipsam necessitatibus incidunt, explicabo.
+                      </p>
+                    </div>
+                  </li>
+                </ol>
+              </TabPanel>
+            </TabsBody>
+          </Tabs>
+        </div>
+        <div className="mt-4">
+          <Typography variant="h4" className="mb-4">Gallery</Typography>
+          <Carousel className="rounded-xl">
+            <img
+              src="https://4.bp.blogspot.com/-Bj1GkHr-qqo/XHPHX-ENSBI/AAAAAAAAJd4/4oluNmaugW8gWijqigigexrM1a-ES1F9QCPcBGAYYCw/s1600/IMG_8250.jpg"
+              alt="image 1"
+              className="h-full w-full object-cover max-h-40 sm:max-h-60 md:max-h-80 lg:max-h-100"
+            />
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2rehpELIsW-CjutzXBJ9W8brV8PD4HqLZbmyqEppne-sZl7iiMg8yvR_p6V1t16ShpCPqX84eX3kWxZQLrQRfgoKZFZ1ONMcJKTsMDOK-S7r7OqNlC8CyHQGEKQXaKvihra4zZxk_m1uiqI58cP8CmlXI3NEhA0Ux11gfInDKdcYHR0z6OhlcMbGi/s1600/pendakian-gunung-sindoro-via-kledung-tercepat.jpg"
+              alt="image 2"
+              className="h-full w-full object-cover max-h-40 sm:max-h-60 md:max-h-80 lg:max-h-100"
+            />
+            <img
+              src="https://mytrip123.com/wp-content/uploads/2016/03/Sindoro.jpg"
+              alt="image 3"
+              className="h-full w-full object-cover max-h-40 sm:max-h-60 md:max-h-80 lg:max-h-100"
+            />
+          </Carousel>
         </div>
       </Card>
     </div>

@@ -1,14 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import { Banner, Maps } from "../../components";
 import { Button, Typography, Card, CardHeader, CardBody, Avatar } from "@material-tailwind/react";
 import { login } from "../../libs/login";
 
 export default function Home() {
+  let [lat, setLat] = useState(false);
+  let [lng, setLng] = useState(false);
+
   useEffect(() => {
+    navigator?.geolocation.getCurrentPosition(({ coords: { latitude: lat, longitude: lng } }) => {
+      setLat(lat)
+      setLng(lng)
+
+      console.log(lat, lng)
+    })
+
     window.scrollTo(0, 0);
     handleLogin();
-  });
+  }, []);
 
   const banners = [
     {
@@ -149,7 +159,11 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-8">
-        <Maps />
+        <Maps
+          lat={lat}
+          lng={lng}
+          zoom={15}
+        />
       </div>
       <div className="mt-8">
         <Typography variant="h3" className="mb-4">

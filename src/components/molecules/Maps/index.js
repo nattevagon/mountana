@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css"; // Make sure to import Leaflet"s CSS for styling
 
-export default function Maps() {
-  const [lat, setLat] = useState(false);
-  const [lng, setLng] = useState(false);
-
-  useEffect(() => {
-    navigator?.geolocation.getCurrentPosition(({ coords: { latitude: lat, longitude: lng } }) => {
-      setLat(lat)
-      setLng(lng)
-
-      console.log(lat, lng)
-    })
-  });
-
-  if(lat && lng) {
+export default function Maps(props) {
+  if(props.lat && props.lng) {
     return (
       <MapContainer
         className="rounded-xl z-0"
-        center={[parseFloat(lat), parseFloat(lng)]}
-        zoom={13}
+        center={[parseFloat(props.lat), parseFloat(props.lng)]}
+        zoom={props.zoom}
         style={{ width: "100%", height: "400px" }}
       >
         <TileLayer
