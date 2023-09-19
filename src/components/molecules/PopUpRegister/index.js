@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Dialog, DialogBody, Input, Typography } from "@material-tailwind/react";
+import { Button, Dialog, DialogBody, IconButton, Input, Typography } from "@material-tailwind/react";
 
 export default function PopUpRegister(props) {
   let handleSubmit = () => {
@@ -7,11 +7,33 @@ export default function PopUpRegister(props) {
   }
 
   return (
-    <Dialog open={props.isOpen} size={"xs"} handler={() => props.onClose()}>
+    <Dialog open={props.isOpen} size={props.isMobile ? "xxl" : "xs"} handler={() => props.onClose()}>
       <DialogBody>
-        <Typography variant="h4" color="blue-gray">
-          Register
-        </Typography>
+        <div className="mb-2 flex items-center justify-between">
+          <Typography variant="h5" color="blue-gray">
+            Register
+          </Typography>
+          <IconButton
+            variant="text"
+            color="blue-gray"
+            onClick={props.onClose}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </IconButton>
+        </div>
         <Typography color="gray" className="mt-1 font-normal">
           Enter your name, username, and password.
         </Typography>

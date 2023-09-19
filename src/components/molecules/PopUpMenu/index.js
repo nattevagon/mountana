@@ -222,8 +222,8 @@ export default function PopUpMenu(props) {
           </div>
         </div>
       </div>
-      <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} />
-      <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />
+      <PopUpLogin isOpen={isPopUpLogin} isMobile={true} onClose={() => setPopUpLogin(false)} />
+      <PopUpRegister isOpen={isPopUpRegister} isMobile={true} onClose={() => setPopUpRegister(false)} />
     </Drawer>
 
   );
