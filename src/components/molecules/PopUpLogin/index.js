@@ -1,19 +1,32 @@
-import React from "react";
-import {
-  Button,
-  Dialog,
-  DialogBody,
-  Input,
-  Checkbox,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
+import React, { useEffect } from "react";
+import { Button, Dialog, DialogBody, Input, Typography, IconButton, } from "@material-tailwind/react";
 
 export default function PopUpLogin(props) {
+  useEffect(() => {
+    if (props.isOpen) {
+      // Save the current scroll position
+      const scrollY = window.scrollY;
+
+      // Disable scrolling on the body element
+      document.body.classList.add("overflow-hidden", "sm:overflow-auto")
+
+      // Restore the scroll position when the drawer is closed
+      return () => {
+        document.body.classList.remove("overflow-hidden", "sm:overflow-auto");
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [props.isOpen]);
+
   let handleSubmit = () => {
     console.log("Submit")
     localStorage.setItem("isLogin", true);
     window.location.reload();
+  }
+
+  let handleRegister = () => {
+    props.onClose()
+    props.onRegister()
   }
 
   return (
@@ -57,7 +70,7 @@ export default function PopUpLogin(props) {
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
             Not already have an account ?{" "}
-            <a href="#" className="font-medium text-gray-900">
+            <a href="#" className="font-medium text-gray-900" onClick={() => handleRegister()}>
               Register
             </a>
           </Typography>

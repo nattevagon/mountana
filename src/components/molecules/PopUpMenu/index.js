@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { accountCircle, bell, calendar, close, expandMore, explore, heart, logout, mountain, mountana, settings } from "assets";
+import { accountCircle, bell, calendar, close, expandMore, explore, heart, login, logout, mountain, mountana, settings } from "assets";
 import { Link, useNavigate } from "react-router-dom";
 import { List, ListItem, ListItemPrefix, ListItemSuffix, Chip, Accordion, AccordionHeader, AccordionBody, Typography, Button, Drawer } from "@material-tailwind/react";
 import { PopUpLogin, PopUpRegister } from "components";
@@ -39,15 +39,9 @@ export default function PopUpMenu(props) {
     history(url);
   }
 
-  let handleLoginRegister = (status) => {
+  let handleLoginRegister = () => {
     props.onClose();
-
-    if (status === "login") {
-      setPopUpLogin(true)
-    }
-    else {
-      setPopUpRegister(true)
-    }
+    setPopUpLogin(true)
   }
 
   let handleLogout = () => {
@@ -87,17 +81,19 @@ export default function PopUpMenu(props) {
           </div>
           <hr className="mb-2 border-blue-gray-50" />
           <div>
-            <List className="pl-1 pr-1">
+            <List className="px-4">
               {!isLogin ?
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <Button variant="gradient" color="black" className="py-2 px-4 mr-2 rounded-full w-full h-10" onClick={() => handleLoginRegister("login")}>
-                      Login
-                    </Button>
-                    <Button variant="gradient" color="black" className="py-2 px-4 ml-2 rounded-full w-full h-10" onClick={() => handleLoginRegister("register")}>
-                      Register
-                    </Button>
-                  </div>
+                  <ListItem onClick={() => handleLoginRegister()}>
+                    <ListItemPrefix>
+                      <img
+                        src={login}
+                        alt="Login"
+                        className="w-6 h-6 inline-block my-auto"
+                      />
+                    </ListItemPrefix>
+                    Login
+                  </ListItem>
                 </div>
                 :
                 <Accordion
@@ -222,7 +218,7 @@ export default function PopUpMenu(props) {
           </div>
         </div>
       </div>
-      <PopUpLogin isOpen={isPopUpLogin} isMobile={true} onClose={() => setPopUpLogin(false)} />
+      <PopUpLogin isOpen={isPopUpLogin} isMobile={true} onRegister={() => setPopUpRegister(true)} onClose={() => setPopUpLogin(false)} />
       <PopUpRegister isOpen={isPopUpRegister} isMobile={true} onClose={() => setPopUpRegister(false)} />
     </Drawer>
 

@@ -107,9 +107,6 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-8">
-        <Typography variant="h3">
-          Find your mountain
-        </Typography>
         <div className="container mx-auto">
           <div className="mt-8 mb-8 grid grid-flow-col gap-4 overflow-x-auto no-scrollbar">
             <Button variant="gradient" color="white" className="rounded-full min-w-min" onClick={() => handleLogin()}>
@@ -166,10 +163,10 @@ export default function Home() {
         />
       </div> */}
       <div className="mt-8">
-        <Typography variant="h3" className="mb-4">
+        <Typography variant="h4" className="mb-4">
           Find your guidelines
         </Typography>
-        <div className="mt-8 mb-8 grid grid-flow-col gap-4 overflow-x-auto no-scrollbar">
+        <div className="mt-4 mb-8 grid grid-flow-col gap-4 overflow-x-auto no-scrollbar">
           <Card
             shadow={false}
             className="min-w-min relative grid w-min-80 items-end justify-center overflow-hidden text-center"

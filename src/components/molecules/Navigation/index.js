@@ -175,9 +175,6 @@ export default function Navigation() {
               <Button variant="gradient" color="black" className="py-2 px-4 mx-2 rounded-full w-24" onClick={() => setPopUpLogin(true)}>
                 Login
               </Button>
-              <Button variant="gradient" color="black" className="py-2 px-4 mx-2 rounded-full w-24" onClick={() => setPopUpRegister(true)}>
-                Register
-              </Button>
             </div>
           }
         </div>
@@ -190,7 +187,7 @@ export default function Navigation() {
           />
         </button>
         <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)} />
-        <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} />
+        <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} onRegister={() => setPopUpRegister(true)}/>
         <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />
         <Notification isOpen={isNotification} onClose={() => setNotification(false)} />
       </div>

@@ -17,6 +17,7 @@ import mountain from "./icons/mountain.svg"
 import accountCircle from "./icons/account-circle.svg"
 import settings from "./icons/settings.svg"
 import logout from "./icons/logout.svg"
+import login from "./icons/login.svg"
 import explore from "./icons/explore.svg"
 
 //Logos
@@ -45,6 +46,7 @@ export {
     accountCircle,
     settings,
     logout,
+    login,
     explore,
     pageNotFound404
 }

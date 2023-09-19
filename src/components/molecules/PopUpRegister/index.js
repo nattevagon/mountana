@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Dialog, DialogBody, IconButton, Input, Typography } from "@material-tailwind/react";
 
 export default function PopUpRegister(props) {
+  useEffect(() => {
+    if (props.isOpen) {
+      // Save the current scroll position
+      const scrollY = window.scrollY;
+
+      // Disable scrolling on the body element
+      document.body.classList.add("overflow-hidden", "sm:overflow-auto")
+
+      // Restore the scroll position when the drawer is closed
+      return () => {
+        document.body.classList.remove("overflow-hidden", "sm:overflow-auto");
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [props.isOpen]);
+
   let handleSubmit = () => {
     console.log("Submit")
   }
