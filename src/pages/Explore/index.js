@@ -64,6 +64,8 @@ export default function Explore() {
               lat={lat}
               lng={lng}
               zoom={15}
+              width="100%"
+              height="240px"
             />
           </Card>
         </div>

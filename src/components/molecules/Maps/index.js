@@ -9,7 +9,7 @@ export default function Maps(props) {
         className="rounded-xl z-0"
         center={[parseFloat(props.lat), parseFloat(props.lng)]}
         zoom={props.zoom}
-        style={{ width: "100%", height: "400px" }}
+        style={{ width: props.width, height: props.height }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

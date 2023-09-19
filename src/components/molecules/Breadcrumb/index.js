@@ -19,6 +19,12 @@ export default function Breadcrumb(props) {
         </a>
         : null
       }
+      {props.subChild ?
+        <a href={process.env.PUBLIC_URL+"/"+props.parent+"/"+props.child+"/"+props.subChild} className="opacity-60">
+          {(props.subChild).toUpperCase()}
+        </a>
+        : null
+      }
     </Breadcrumbs>
   )
 }

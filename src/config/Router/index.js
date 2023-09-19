@@ -11,7 +11,8 @@ export default function Router() {
         <Route exact path={process.env.PUBLIC_URL+"/"} element={ <Home/> } />
         <Route exact path={process.env.PUBLIC_URL+"/mountain"} element={ <Mountain/> } />
         <Route exact path={process.env.PUBLIC_URL+"/explore"} element={ <Explore/> } />
-        <Route exact path={process.env.PUBLIC_URL+"/mountain/:id"} element={ <MountainDetail/> } />
+        <Route exact path={process.env.PUBLIC_URL+"/mountain/:child"} element={ <MountainDetail/> } />
+        <Route exact path={process.env.PUBLIC_URL+"/mountain/:child/:subChild"} element={ <MountainDetail/> } />
         <Route exact path={process.env.PUBLIC_URL+"/wishlist"} element={ <Wishlist/> } />
         <Route exact path={process.env.PUBLIC_URL+"/schedule"} element={ <Schedule/> } />
         <Route exact path="*" element={ <NotFound/> } />

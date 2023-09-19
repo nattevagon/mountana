@@ -9,12 +9,12 @@ export default function Home() {
   let [lng, setLng] = useState(false);
 
   useEffect(() => {
-    navigator?.geolocation.getCurrentPosition(({ coords: { latitude: lat, longitude: lng } }) => {
-      setLat(lat)
-      setLng(lng)
+    // navigator?.geolocation.getCurrentPosition(({ coords: { latitude: lat, longitude: lng } }) => {
+    //   setLat(lat)
+    //   setLng(lng)
 
-      console.log(lat, lng)
-    })
+    //   console.log(lat, lng)
+    // })
 
     window.scrollTo(0, 0);
     handleLogin();
@@ -158,13 +158,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <Maps
           lat={lat}
           lng={lng}
           zoom={15}
         />
-      </div>
+      </div> */}
       <div className="mt-8">
         <Typography variant="h3" className="mb-4">
           Find your guidelines
