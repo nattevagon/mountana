@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { accountCircle, bell, calendar, explore, heart, logout, menuBar, mountain, mountana, search, settings } from "assets";
-import { PopUpLogin, PopUpRegister, PopUpMenu, Notification } from "components";
+import { PopUpLogin, PopUpRegister, PopUpMenu, Notification, Dropdowns, DropdownsButton, DropdownsContent } from "components";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, MenuHandler, MenuList, Button, List, ListItem, ListItemPrefix, Badge } from "@material-tailwind/react";
 
@@ -95,8 +95,8 @@ export default function Navigation() {
                   />
                 </button>
               </Badge>
-              <Menu placement="bottom-end" animate={{ mount: { y: 16 }, unmount: { y: 0 } }}>
-                <MenuHandler>
+              <Dropdowns>
+                <DropdownsButton id="button1">
                   <button className="bg-gray-200 hover:bg-gray-300 text-white py-2 px-4 mx-2 rounded-full h-12 flex">
                     <img
                       className="w-8 h-8 m-auto rounded-full object-cover object-center"
@@ -105,8 +105,8 @@ export default function Navigation() {
                     />
                     {/* <p className="ml-2 text-black my-auto hidden xlg:flex">User Name</p> */}
                   </button>
-                </MenuHandler>
-                <MenuList className="rounded-xlg">
+                </DropdownsButton>
+                <DropdownsContent id="button1" className="p-4 mt-5">
                   <List className="outline-none p-0">
                     <ListItem>
                       <ListItemPrefix>
@@ -149,8 +149,8 @@ export default function Navigation() {
                       Logout
                     </ListItem>
                   </List>
-                </MenuList>
-              </Menu>
+                </DropdownsContent>
+              </Dropdowns>
             </div>
             :
             <div className="flex">
@@ -186,8 +186,8 @@ export default function Navigation() {
             className="w-6 h-6 inline-block"
           />
         </button>
-        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)} onPopUpLogin={() => setPopUpLogin(true)}/>
-        <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} onRegister={() => setPopUpRegister(true)}/>
+        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)} onPopUpLogin={() => setPopUpLogin(true)} />
+        <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} onRegister={() => setPopUpRegister(true)} />
         <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />
         <Notification isOpen={isNotification} onClose={() => setNotification(false)} />
       </div>
