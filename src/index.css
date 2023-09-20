@@ -30,6 +30,53 @@
       overflow: hidden;
       height: 100%;
     }
+
+    /* styles.css */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+.modal-exit {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+/* Additional styles for overlay */
+.overlay-enter {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.overlay-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.overlay-exit {
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+
+.overlay-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
   }
 }    
 

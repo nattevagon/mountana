@@ -15,7 +15,8 @@
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
-    "tw-elements": "^1.0.0-rc.1",
+    "react-spring": "^9.7.2",
+    "tw-elements": "^1.0.0",
     "tw-elements-react": "^1.0.0-alpha1",
     "web-vitals": "^2.1.4"
   },

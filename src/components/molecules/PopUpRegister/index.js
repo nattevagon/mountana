@@ -1,30 +1,14 @@
 import React, { useEffect } from "react";
-import { Button, Dialog, DialogBody, IconButton, Input, Typography } from "@material-tailwind/react";
+import { Button, IconButton, Input, Typography } from "@material-tailwind/react";
+import { Modal } from "components";
 
 export default function PopUpRegister(props) {
-  useEffect(() => {
-    if (props.isOpen) {
-      // Save the current scroll position
-      const scrollY = window.scrollY;
-
-      // Disable scrolling on the body element
-      document.body.classList.add("overflow-hidden", "sm:overflow-auto")
-
-      // Restore the scroll position when the drawer is closed
-      return () => {
-        document.body.classList.remove("overflow-hidden", "sm:overflow-auto");
-        window.scrollTo(0, scrollY);
-      };
-    }
-  }, [props.isOpen]);
-
   let handleSubmit = () => {
     console.log("Submit")
   }
 
   return (
-    <Dialog open={props.isOpen} size={props.isMobile ? "xxl" : "xs"} handler={() => props.onClose()}>
-      <DialogBody>
+    <Modal className="h-screen w-screen rounded-none lg:h-auto lg:w-100 lg:rounded-lg p-4" maxWidth="400px" isOpen={props.isOpen} onClose={() => props.onClose()}>
         <div className="mb-2 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray">
             Register
@@ -70,7 +54,6 @@ export default function PopUpRegister(props) {
             </a>
           </Typography>
         </form>
-      </DialogBody>
-    </Dialog>
+        </Modal>
   )
 }

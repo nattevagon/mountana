@@ -186,7 +186,7 @@ export default function Navigation() {
             className="w-6 h-6 inline-block"
           />
         </button>
-        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)} />
+        <PopUpMenu isOpen={isPopUpMenu} onClose={() => setPopUpMenu(false)} onOpenNotification={(status) => setNotification(status)} onPopUpLogin={() => setPopUpLogin(true)}/>
         <PopUpLogin isOpen={isPopUpLogin} onClose={() => setPopUpLogin(false)} onRegister={() => setPopUpRegister(true)}/>
         <PopUpRegister isOpen={isPopUpRegister} onClose={() => setPopUpRegister(false)} />
         <Notification isOpen={isNotification} onClose={() => setNotification(false)} />

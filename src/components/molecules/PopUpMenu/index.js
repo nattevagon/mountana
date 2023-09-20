@@ -41,7 +41,7 @@ export default function PopUpMenu(props) {
 
   let handleLoginRegister = () => {
     props.onClose();
-    setPopUpLogin(true)
+    props.onPopUpLogin()
   }
 
   let handleLogout = () => {
@@ -218,8 +218,6 @@ export default function PopUpMenu(props) {
           </div>
         </div>
       </div>
-      <PopUpLogin isOpen={isPopUpLogin} isMobile={true} onRegister={() => setPopUpRegister(true)} onClose={() => setPopUpLogin(false)} />
-      <PopUpRegister isOpen={isPopUpRegister} isMobile={true} onClose={() => setPopUpRegister(false)} />
     </Drawer>
 
   );
