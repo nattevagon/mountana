@@ -41,7 +41,7 @@ export default function PopUpMenu(props) {
 
   let handleLoginRegister = () => {
     props.onClose();
-    props.onPopUpLogin()
+    props.onMenu("login")
   }
 
   let handleLogout = () => {
